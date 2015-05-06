@@ -59,7 +59,7 @@ module Shrimp
     end
 
     def render_to
-      file_name = Digest::MD5.hexdigest(@request.params['url']) + ".pdf"
+      file_name = Digest::MD5.hexdigest(@request.params['url'] + Time.now.to_i) + ".pdf"
       file_path = @options[:out_path]
       "#{file_path}/#{file_name}"
     end
